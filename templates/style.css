@@ -6,11 +6,35 @@ h1 {
     text-align: center;
 }
 
+.employee-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .employee {
+    flex: 0 0 30%;
     margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    padding: 10px;
     text-align: center;
 }
 
 img {
-    border-radius: 50%; /* Пример стиля для фотографий */
+    border-radius: 50%; /* Круглые фотографии */
+}
+
+@media (max-width: 768px) {
+    .employee {
+        flex: 0 0 45%; /* 2 столбца на средних экранах */
+    }
+}
+
+@media (max-width: 480px) {
+    .employee {
+        flex: 0 0 100%; /* 1 столбец на маленьких экранах */
+    }
 }

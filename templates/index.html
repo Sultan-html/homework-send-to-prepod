@@ -1,22 +1,78 @@
-{% load static %}
-
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Наши сотрудники</title>
-</head>
-<body>
-    <h1 style="font-size: 50px;">Наши сотрудники:</h1>
-{% for employee in employee %}
-<h1>Имя: {{ employee.name }}</h1> 
-<p style="font-size: 30px;">Должность: {{employee.position}}</p>
-<img src="{{ employee.photo.url }}" alt="фотография сотрудника{{ employee.name }}" width="100">
-<p style="font-size: 30px;">Биография: {{employee.bio}}</p>
-{% endfor %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
 
+        h1 {
+            font-size: 50px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .employee-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .employee {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: 30%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .employee:hover {
+            transform: scale(1.02);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .employee {
+                width: 45%; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .employee {
+                width: 100%; 
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Наши сотрудники:</h1>
+    <div class="employee-container">
+        {% for employee in employee %}
+        <div class="employee">
+            <h2>Имя: {{ employee.name }}</h2>
+            <p>Должность: {{ employee.position }}</p>
+            <img src="{{ employee.photo.url }}" alt="фотография сотрудника {{ employee.name }}">
+            <p>Биография: {{ employee.bio }}</p>
+        </div>
+        {% endfor %}
+    </div>
 </body>
+
 </html>
