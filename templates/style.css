@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.employee {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+img {
+    border-radius: 50%; /* Пример стиля для фотографий */
+}

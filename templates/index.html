@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Наши сотрудники</title>
+</head>
+<body>
+    <h1 style="font-size: 50px;">Наши сотрудники:</h1>
+{% for employee in employee %}
+<h1>Имя: {{ employee.name }}</h1> 
+<p style="font-size: 30px;">Должность: {{employee.position}}</p>
+<img src="{{ employee.photo.url }}" alt="фотография сотрудника{{ employee.name }}" width="100">
+<p style="font-size: 30px;">Биография: {{employee.bio}}</p>
+{% endfor %}
+
+</body>
+</html>
